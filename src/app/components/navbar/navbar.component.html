@@ -1,0 +1,16 @@
+<mat-toolbar class="navbar" color="primary">
+  <div>
+    <div routerLink="/">Les perfumes</div>
+  </div>
+  <div>
+    <span *ngIf="!isLoggedIn" routerLink="/login">Login</span>
+    <span *ngIf="!isLoggedIn" routerLink="/register">Register</span>
+    <span *ngIf="isLoggedIn" routerLink="/favorites">My favorites</span>
+    <span *ngIf="isLoggedIn" routerLink="/cart">Shopping cart</span>
+    <span *ngIf="isLoggedIn" routerLink="/" (click)="onLogOut()">Log out</span>
+  </div>
+</mat-toolbar>
+
+<div class="content-container">
+  <router-outlet></router-outlet>
+</div>

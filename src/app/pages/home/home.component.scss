@@ -1,0 +1,24 @@
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-link {
+  margin: 0 1rem 0 1rem;
+  font-size: 20px;
+}
+
+.filter-link:hover {
+  text-decoration: underline;
+}
+
+active-filter-link {
+  margin: 0 1rem 0 1rem;
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+#bottom-card {
+  margin-top: 2rem;
+}
