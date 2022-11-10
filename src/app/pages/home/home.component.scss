@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .filter-link {
@@ -13,7 +14,7 @@
   text-decoration: underline;
 }
 
-active-filter-link {
+.active-filter-link {
   margin: 0 1rem 0 1rem;
   font-size: 20px;
   text-decoration: underline;
@@ -21,4 +22,9 @@ active-filter-link {
 
 #bottom-card {
   margin-top: 2rem;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
 }

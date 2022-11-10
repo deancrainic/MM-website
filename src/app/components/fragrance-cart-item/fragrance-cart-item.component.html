@@ -1,0 +1,18 @@
+<div>
+  <div class="preview-content">
+    <img id="preview" [src]="fragrance.fragrance.images[0]" alt="fragrance">
+    <div class="text">
+      <p>{{fragrance.fragrance.name}}</p>
+      <div class="form" [formGroup]="quantityForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Quantity</mat-label>
+          <input matInput formControlName="quantity" (change)="updateQuantity(fragrance.fragrance.id, quantity)">
+        </mat-form-field>
+        <button mat-raised-button color="primary" style="margin-left: 2rem;" (click)="removeFragrance(fragrance.fragrance.id)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>

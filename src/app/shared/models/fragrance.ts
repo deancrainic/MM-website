@@ -3,5 +3,7 @@ export interface Fragrance {
   name: string;
   description: string;
   notes: string;
+  images: string[];
   cid: string;
+  price: number;
 }

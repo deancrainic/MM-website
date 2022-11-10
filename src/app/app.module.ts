@@ -13,11 +13,18 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FirebaseModule } from "./shared/modules/firebase/firebase.module";
-import { AuthService } from "./shared/services/auth.service";
+import { AuthService } from "./shared/services/auth/auth.service";
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import {SharedModule} from "./shared/shared.module";
+import {ServicesModule} from "./shared/services/services.module";
+import { FragranceItemComponent } from './components/fragrance-item/fragrance-item.component';
+import { FragranceComponent } from './pages/fragrance/fragrance.component';
+import {ToastrModule} from "ngx-toastr";
+import { FragrancesScreenComponent } from './components/fragrances-screen/fragrances-screen.component';
+import { FragranceCartItemComponent } from './components/fragrance-cart-item/fragrance-cart-item.component';
 
 @NgModule({
   declarations: [
@@ -27,18 +34,23 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     HomeComponent,
     RegisterComponent,
     FavoritesComponent,
-    CartComponent
+    CartComponent,
+    FragranceItemComponent,
+    FragranceComponent,
+    FragrancesScreenComponent,
+    FragranceCartItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    FirebaseModule,
+    SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 1500
+    })
   ],
-  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

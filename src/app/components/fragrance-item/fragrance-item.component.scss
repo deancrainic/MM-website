@@ -1,0 +1,34 @@
+.fragrance-container {
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fragrance-container:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.fragrance-item-image {
+  width: 5rem;
+  height: 10rem;
+}
+
+.name {
+  padding: 0;
+  margin: 0;
+  font-weight: 600;
+}
+
+.category {
+  padding: 0;
+  margin: 0;
+}
+
+.price {
+  padding: 0;
+  margin: 1rem 0 0;
+}

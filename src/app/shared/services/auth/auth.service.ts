@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from '../models/user';
-import * as auth from 'firebase/auth';
+import { User } from '../../models/user';
+import { Favorites } from "../../models/favorites";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   AngularFirestore,
@@ -55,6 +55,12 @@ export class AuthService {
           displayName: displayName
         });
         this.SetUserData(result.user);
+        this.afs.collection('favorites').doc(result.user?.uid).set({
+          fragrancesIds: []
+        });
+        this.afs.collection('cart').doc(result.user?.uid).set({
+          fragrances: []
+        })
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             this.router.navigate(['']);

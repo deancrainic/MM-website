@@ -1,1 +1,4 @@
-<p>favorites works!</p>
+<div *ngIf="!isLoading">
+  <app-fragrances-screen [fragrances]="fragrances"></app-fragrances-screen>
+  <h4 *ngIf="fragrances.length === 0">There are no fragrances in my favorites.</h4>
+</div>

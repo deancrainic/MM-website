@@ -5,6 +5,7 @@ import {LoginComponent} from "./pages/login/login.component";
 import {RegisterComponent} from "./pages/register/register.component";
 import {FavoritesComponent} from "./pages/favorites/favorites.component";
 import {CartComponent} from "./pages/cart/cart.component";
+import {FragranceComponent} from "./pages/fragrance/fragrance.component";
 
 const routes: Routes = [{
   path: '',
@@ -21,6 +22,9 @@ const routes: Routes = [{
 }, {
   path: 'cart',
   component: CartComponent
+}, {
+  path: 'fragrance/:id',
+  component: FragranceComponent
 }];
 
 @NgModule({

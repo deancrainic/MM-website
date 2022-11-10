@@ -1,0 +1,46 @@
+<mat-card *ngIf="!isLoading" style="width: 100%">
+  <div class="fragnance-container">
+    <div class="details-container">
+      <div class="gallery">
+        <img [src]="fragrance.images[imageIndex]" alt="fragrance">
+        <div class="buttons">
+          <button mat-raised-button color="primary" (click)="previousImage()">
+            <
+          </button>
+          <button mat-raised-button color="primary" (click)="nextImage()">
+            >
+          </button>
+        </div>
+      </div>
+      <div class="info">
+        <div class="info-details">
+          <p class="name">{{fragrance.name}}</p>
+          <p class="category">for {{fragrance.cid}}</p>
+          <div class="details">
+            <p class="category">Quantity: 100 ml</p>
+            <p class="category">Price:<span>{{fragrance.price}}</span> RON</p>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <button mat-raised-button color="primary" (click)="handleFavorites()">
+            {{ isAdded ? 'Remove from my favorites' : 'Add to my favorites' }} <mat-icon>favorite</mat-icon>
+          </button>
+          <button mat-raised-button color="primary" [disabled]="isAddedInCart" (click)="handleCart()">
+            {{ isAddedInCart ? 'Already in my shopping cart' : 'Add to my shopping cart' }} <mat-icon>shopping_cart</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <hr>
+      <div class="description-container">
+        <div class="description">
+          <p><span>Description</span>: {{fragrance.description}}</p>
+        </div>
+        <div class="description">
+          <p><span>Notes</span>: {{fragrance.notes}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-card>

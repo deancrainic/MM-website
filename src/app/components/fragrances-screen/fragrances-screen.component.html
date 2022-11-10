@@ -1,0 +1,20 @@
+<div class="filter-container">
+  <h5 [ngClass]="menActive ? 'active-filter-link' : 'filter-link'" (click)="handleMenActive()">Men</h5>
+  <h5>/</h5>
+  <h5 [ngClass]="womenActive ? 'active-filter-link' : 'filter-link'" (click)="handleWomenActive()">Women</h5>
+  <h5>/</h5>
+  <h5 [ngClass]="unisexActive ? 'active-filter-link' : 'filter-link'" (click)="handleUnisexActive()">Unisex</h5>
+</div>
+
+<hr>
+
+<div id="bottom-card">
+  <div *ngFor="let row of rows" class="row">
+    <app-fragrance-item
+      *ngFor="let fragrance of filteredFragrances | slice: row*4 : row*4 + 4" [fragrance]="fragrance"
+      (click)="handleGotoFragrance(fragrance.id)"
+    ></app-fragrance-item>
+  </div>
+
+</div>
+

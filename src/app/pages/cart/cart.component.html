@@ -1,1 +1,44 @@
-<p>cart works!</p>
+<mat-card *ngIf="!isLoading" style="width: 100%">
+  <div>
+
+  </div>
+  <app-fragrance-cart-item *ngFor="let fragrance of fragrances" [fragrance]="fragrance" [userId]="userId" (refreshEvent)="getFragrancesList()"></app-fragrance-cart-item>
+  <div *ngIf="fragrances.length > 0">
+    <p>Your total cost is: {{totalCost}} RON</p>
+
+    <form [formGroup]="confirmationForm">
+      <div class="form-fields-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>First name</mat-label>
+          <input matInput formControlName="firstName">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Last name</mat-label>
+          <input matInput formControlName="lastName">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="address">
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="!email || !firstName || !lastName || !address"
+          (click)="handleBuy()"
+        >
+          Buy
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <h4 *ngIf="fragrances.length === 0">Shopping cart is empty.</h4>
+</mat-card>
