@@ -6,6 +6,7 @@ import {RegisterComponent} from "./pages/register/register.component";
 import {FavoritesComponent} from "./pages/favorites/favorites.component";
 import {CartComponent} from "./pages/cart/cart.component";
 import {FragranceComponent} from "./pages/fragrance/fragrance.component";
+import {LoggedInGuard} from "./shared/guards/logged-in.guard";
 
 const routes: Routes = [{
   path: '',
@@ -18,10 +19,12 @@ const routes: Routes = [{
   component: RegisterComponent
 }, {
   path: 'favorites',
-  component: FavoritesComponent
+  component: FavoritesComponent,
+  canActivate: [LoggedInGuard]
 }, {
   path: 'cart',
-  component: CartComponent
+  component: CartComponent,
+  canActivate: [LoggedInGuard]
 }, {
   path: 'fragrance/:id',
   component: FragranceComponent

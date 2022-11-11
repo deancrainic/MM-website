@@ -76,6 +76,10 @@ export class AuthService {
     return this.afAuth.authState;
   }
 
+  checkLoggedIn() {
+    return localStorage.getItem('user') !== 'null';
+  }
+
   SetUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.id}`
