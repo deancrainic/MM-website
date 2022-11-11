@@ -4,10 +4,10 @@
       <div class="gallery">
         <img [src]="fragrance.images[imageIndex]" alt="fragrance">
         <div class="buttons">
-          <button mat-raised-button color="primary" (click)="previousImage()">
+          <button style="margin-right: 4rem" mat-raised-button (click)="previousImage()">
             <
           </button>
-          <button mat-raised-button color="primary" (click)="nextImage()">
+          <button mat-raised-button (click)="nextImage()">
             >
           </button>
         </div>
@@ -22,10 +22,10 @@
           </div>
         </div>
         <div class="action-buttons">
-          <button mat-raised-button color="primary" (click)="handleFavorites()">
+          <button mat-raised-button (click)="handleFavorites()">
             {{ isAdded ? 'Remove from my favorites' : 'Add to my favorites' }} <mat-icon>favorite</mat-icon>
           </button>
-          <button mat-raised-button color="primary" [disabled]="isAddedInCart" (click)="handleCart()">
+          <button mat-raised-button [disabled]="isAddedInCart" (click)="handleCart()">
             {{ isAddedInCart ? 'Already in my shopping cart' : 'Add to my shopping cart' }} <mat-icon>shopping_cart</mat-icon>
           </button>
         </div>

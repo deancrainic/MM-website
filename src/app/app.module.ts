@@ -25,6 +25,7 @@ import { FragranceComponent } from './pages/fragrance/fragrance.component';
 import {ToastrModule} from "ngx-toastr";
 import { FragrancesScreenComponent } from './components/fragrances-screen/fragrances-screen.component';
 import { FragranceCartItemComponent } from './components/fragrance-cart-item/fragrance-cart-item.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FragranceCartItemComponent } from './components/fragrance-cart-item/fra
     FragranceItemComponent,
     FragranceComponent,
     FragrancesScreenComponent,
-    FragranceCartItemComponent
+    FragranceCartItemComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

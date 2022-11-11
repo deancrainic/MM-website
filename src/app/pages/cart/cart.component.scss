@@ -5,3 +5,24 @@
   max-width: 40rem;
   justify-content: center;
 }
+
+button {
+  background-color: pink;
+}
+
+.cart-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.discount-container {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  max-height: 30px;
+}
+
+.discount-container button {
+  margin-left: 2rem;
+}

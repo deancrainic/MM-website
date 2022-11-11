@@ -1,12 +1,13 @@
-<mat-toolbar class="navbar" color="primary">
-  <div>
-    <div routerLink="/">Les perfumes</div>
+<mat-toolbar class="navbar">
+  <div style="display: flex">
+    <span routerLink="/">Scentsational</span>
+    <span routerLink="/about-us" [routerLinkActive]="['link-active']">About us</span>
   </div>
   <div>
-    <span *ngIf="!isLoggedIn" routerLink="/login">Login</span>
-    <span *ngIf="!isLoggedIn" routerLink="/register">Register</span>
-    <span *ngIf="isLoggedIn" routerLink="/favorites">My favorites</span>
-    <span *ngIf="isLoggedIn" routerLink="/cart">Shopping cart</span>
+    <span *ngIf="!isLoggedIn" routerLink="/login" [routerLinkActive]="['link-active']">Login</span>
+    <span *ngIf="!isLoggedIn" routerLink="/register" [routerLinkActive]="['link-active']">Register</span>
+    <span *ngIf="isLoggedIn" routerLink="/favorites" [routerLinkActive]="['link-active']">My favorites</span>
+    <span *ngIf="isLoggedIn" routerLink="/cart" [routerLinkActive]="['link-active']">Shopping cart</span>
     <span *ngIf="isLoggedIn" routerLink="/" (click)="onLogOut()">Log out</span>
   </div>
 </mat-toolbar>

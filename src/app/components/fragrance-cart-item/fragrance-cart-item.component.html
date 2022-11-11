@@ -6,13 +6,27 @@
       <div class="form" [formGroup]="quantityForm">
         <mat-form-field appearance="fill">
           <mat-label>Quantity</mat-label>
-          <input matInput formControlName="quantity" (change)="updateQuantity(fragrance.fragrance.id, quantity)">
+          <input matInput formControlName="quantity">
         </mat-form-field>
-        <button mat-raised-button color="primary" style="margin-left: 2rem;" (click)="removeFragrance(fragrance.fragrance.id)">
+        <button
+          mat-raised-button style="margin-left: 2rem;"
+          [disabled]="(!quantityField!.dirty || !quantityField!.valid)"
+          (click)="updateQuantity(fragrance.fragrance.id, quantityField!.value)"
+          matTooltip="Confirm new quantity after changing"
+        >
+          <mat-icon>check</mat-icon>
+        </button>
+        <button
+          mat-raised-button
+          style="margin-left: 2rem;"
+          (click)="removeFragrance(fragrance.fragrance.id)"
+          matTooltip="Remove item from shopping cart"
+        >
           <mat-icon>close</mat-icon>
         </button>
       </div>
     </div>
   </div>
+  <p>Price: {{fragrance.fragrance.price * fragrance.quantity}} RON</p>
   <hr>
 </div>

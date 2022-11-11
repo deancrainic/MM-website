@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FragranceQuantity} from "../../shared/models/fragrance-quantity";
-import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {CartService} from "../../shared/services/cart/cart.service";
 import {FragranceService} from "../../shared/services/fragrance/fragrance.service";
@@ -18,6 +18,7 @@ export class FragranceCartItemComponent implements OnInit {
   userId!: string;
 
   quantityForm!: FormGroup;
+  quantity!: number;
 
   @Output()
   refreshEvent = new EventEmitter<boolean>();
@@ -26,7 +27,7 @@ export class FragranceCartItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.quantityForm = new FormGroup({
-      quantity: new FormControl(this.fragrance.quantity, [forbiddenNameValidator()])
+      quantity: new FormControl(this.fragrance.quantity, [Validators.min(1), Validators.pattern('^[0-9]*$'), Validators.required])
     })
   }
 
@@ -38,19 +39,7 @@ export class FragranceCartItemComponent implements OnInit {
     this.cartService.removeFragranceFromCart(this.userId, fragranceId).then(() => this.refreshEvent.emit(true));
   }
 
-  get quantity() {
-    return this.quantityForm.get('quantity')!.value;
+  get quantityField() {
+    return this.quantityForm.get('quantity');
   }
-}
-
-function forbiddenNameValidator(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-
-    if (!control.value) {
-      return null;
-    }
-
-    const forbidden = control.value < 1;
-    return !forbidden ? {forbiddenValue: {value: control.value}} : null;
-  };
 }

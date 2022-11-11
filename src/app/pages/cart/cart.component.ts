@@ -25,12 +25,22 @@ export class CartComponent implements OnInit {
     lastName: new FormControl('', [Validators.required]),
     address: new FormControl('', [Validators.required])
   });
+  discount = new FormGroup({
+    code: new FormControl()
+  });
 
   constructor(
     private authService: AuthService,
     private cartService: CartService,
     private fragranceService: FragranceService
-  ) { }
+  ) {
+    let code = localStorage.getItem('code');
+    if (code !== 'null') {
+      this.discount.get('code')?.setValue(code);
+    } else {
+      this.discount.get('code')?.setValue('');
+    }
+  }
 
   ngOnInit(): void {
     this.getFragrancesList();
@@ -46,6 +56,8 @@ export class CartComponent implements OnInit {
           let cartItems = cart.data() as Cart;
           let fragrancesIds = cartItems.fragrances;
           this.totalCost = 0;
+
+          fragrancesIds.sort((a, b) => b.fragranceId.localeCompare(a.fragranceId));
 
           fragrancesIds.forEach(fid => {
             this.fragranceService.getFragranceById(fid.fragranceId).then(fragrance => {
@@ -83,6 +95,10 @@ export class CartComponent implements OnInit {
 
   get address(): string | undefined | null {
     return this.confirmationForm.get('address')?.value;
+  }
+
+  get codeField() {
+    return this.discount.get('code');
   }
 
 }

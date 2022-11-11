@@ -7,6 +7,7 @@ import {FavoritesComponent} from "./pages/favorites/favorites.component";
 import {CartComponent} from "./pages/cart/cart.component";
 import {FragranceComponent} from "./pages/fragrance/fragrance.component";
 import {LoggedInGuard} from "./shared/guards/logged-in.guard";
+import {AboutUsComponent} from "./pages/about-us/about-us.component";
 
 const routes: Routes = [{
   path: '',
@@ -28,6 +29,9 @@ const routes: Routes = [{
 }, {
   path: 'fragrance/:id',
   component: FragranceComponent
+}, {
+  path: 'about-us',
+  component: AboutUsComponent
 }];
 
 @NgModule({

@@ -25,6 +25,10 @@
   padding-left: 2rem;
 }
 
+.buttons:first-child {
+  margin-right: 4rem;
+}
+
 .info {
   width: 49%;
   max-width: 49%;
@@ -70,7 +74,7 @@
 }
 
 .action-buttons {
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -87,4 +91,8 @@
 
 .description span {
   font-weight: 500;
+}
+
+button {
+  background-color: pink;
 }

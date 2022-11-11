@@ -8,7 +8,7 @@
 }
 
 .fragrance-container:hover {
-  background-color: lightgray;
+  transform: scale(1.1);
   cursor: pointer;
 }
 
@@ -21,6 +21,7 @@
   padding: 0;
   margin: 0;
   font-weight: 600;
+  text-align: center;
 }
 
 .category {
