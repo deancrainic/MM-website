@@ -1,6 +1,6 @@
-<mat-card class="card">
+<div class="card">
   <form [formGroup]="registerForm" (ngSubmit)="handleRegister()">
-    <h3>Les perfumes</h3>
+    <h1 id="logo">Scentsational</h1>
 
     <div class="form-fields-container">
       <mat-form-field appearance="fill" type="email">
@@ -34,7 +34,7 @@
       >
         Register
       </button>
-      <h5>Already have an account? <span (click)="gotoLogin()">Sign in!</span></h5>
+      <h4 id="message">Already have an account? <span (click)="gotoLogin()">Sign in!</span></h4>
     </div>
   </form>
-</mat-card>
+</div>

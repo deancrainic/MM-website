@@ -72,7 +72,7 @@ export class CartComponent implements OnInit {
               let frag = fragrance.data() as Fragrance;
               frag.id = fragrance.id;
               if (this.discountApplied) {
-                frag.price = frag.price - frag.price * 10 / 100;
+                frag.price = frag.price - frag.price * 20 / 100;
               }
               let fragWithQuantity: FragranceQuantity = {
                 fragrance: frag,
@@ -93,7 +93,7 @@ export class CartComponent implements OnInit {
   }
 
   applyDiscount() {
-    if (this.codeField?.value !== 'promo10') {
+    if (this.codeField?.value !== 'promo20') {
       this.toastrService.error("Discount code isn't valid");
       this.discountApplied = false;
     } else {

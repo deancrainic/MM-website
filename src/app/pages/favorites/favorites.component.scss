@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap%27');
+
 .filter-container {
   display: flex;
   justify-content: center;
@@ -27,4 +29,8 @@
 .row {
   display: flex;
   justify-content: center;
+}
+
+#message {
+  font-family: 'Courier Prime', monospace;
 }

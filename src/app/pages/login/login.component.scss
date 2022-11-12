@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap%27');
+
 .card {
   width: 100%;
   display: flex;
@@ -16,11 +19,17 @@ button {
   background-color: pink;
 }
 
-h5 span {
-  text-decoration: underline;
-}
-
-h5 span:hover {
+h4 span:hover {
   cursor: pointer;
   color: #b80b2c;
+}
+
+#logo {
+  font-family: 'Sacramento', cursive;
+  font-size: 40px;
+  margin-bottom: 0;
+}
+
+#message {
+  font-family: 'Courier Prime', monospace;
 }

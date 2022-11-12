@@ -1,4 +1,7 @@
 <div *ngIf="!isLoading">
   <app-fragrances-screen [fragrances]="fragrances"></app-fragrances-screen>
-  <h4 *ngIf="fragrances.length === 0">There are no fragrances in my favorites.</h4>
+  <div *ngIf="fragrances.length === 0" style="display: flex; flex-direction: column; align-items: center">
+    <img src="../../../assets/favoritesheart.png" alt="heart" style="width: 15rem">
+    <h4 id="message">There are no fragrances in my favorites.</h4>
+  </div>
 </div>

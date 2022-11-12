@@ -1,5 +1,5 @@
 <mat-card *ngIf="!isLoading" class="cart-container">
-  <div *ngIf="fragrances.length > 0">
+  <div *ngIf="fragrances.length > 0" style="width: 49%; max-width: 49%">
     <form [formGroup]="confirmationForm">
       <div class="form-fields-container">
         <mat-form-field appearance="fill">
@@ -42,7 +42,7 @@
       <button
         mat-raised-button
         matTooltip="Apply discount code"
-        [disabled]="(codeField!.value === '') || !codeField!.dirty || discountApplied"
+        [disabled]="(codeField!.value === '') || !codeField!.dirty || (discountApplied && !codeField!.dirty)"
         (click)="applyDiscount()"
       ><mat-icon>check</mat-icon></button>
       <button

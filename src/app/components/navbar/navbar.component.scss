@@ -1,14 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap%27');
+
 .navbar {
   display: flex;
   justify-content: space-between;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: #b80b2c;
+  background-color: #C3B1E1;
   color: white;
 }
 
 .navbar span {
   padding-right: 1rem;
   padding-left: 1rem;
+  font-family: 'Courier Prime', monospace;
+  font-size: 22px;
 }
 
 .navbar span:hover {
@@ -22,4 +27,9 @@
 
 .content-container {
   margin: 2rem 6rem 2rem 4rem;
+}
+
+#logo {
+  font-family: 'Sacramento', cursive;
+  font-size: 40px;
 }

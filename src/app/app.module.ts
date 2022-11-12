@@ -26,6 +26,7 @@ import {ToastrModule} from "ngx-toastr";
 import { FragrancesScreenComponent } from './components/fragrances-screen/fragrances-screen.component';
 import { FragranceCartItemComponent } from './components/fragrance-cart-item/fragrance-cart-item.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import {IvyCarouselModule} from "angular14-responsive-carousel";
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     ReactiveFormsModule,
     ToastrModule.forRoot({
       timeOut: 1500
-    })
+    }),
+    IvyCarouselModule
   ],
   bootstrap: [AppComponent]
 })

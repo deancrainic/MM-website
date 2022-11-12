@@ -1,25 +1,26 @@
-<mat-card class="card">
-    <form [formGroup]="loginForm" (ngSubmit)="handleLogin()">
-      <h3>Les perfumes</h3>
+<div style="display: flex; justify-content: center; width: 100%">
+  <form [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+    <h1 id="logo">Scentsational</h1>
 
-      <div class="form-fields-container">
-        <mat-form-field appearance="fill">
-          <mat-label>Email</mat-label>
-          <input matInput formControlName="email"  type="email">
-        </mat-form-field>
+    <div class="form-fields-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email"  type="email">
+      </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Password</mat-label>
-          <input matInput type="password" formControlName="password">
-        </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
 
-        <button
-          mat-raised-button
-          [disabled]="!email || !password"
-        >
-          Login
-        </button>
-        <h5>Don't have an account yet? <span (click)="gotoRegister()">Sign up!</span></h5>
-      </div>
-    </form>
-</mat-card>
+      <button
+        mat-raised-button
+        [disabled]="!email || !password"
+      >
+        Login
+      </button>
+      <h4 id="message">Don't have an account yet? <span (click)="gotoRegister()">Sign up!</span></h4>
+    </div>
+  </form>
+</div>
+

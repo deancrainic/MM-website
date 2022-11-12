@@ -1,23 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap%27');
+
 .filter-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 2rem;
 }
 
 .filter-link {
   margin: 0 1rem 0 1rem;
-  font-size: 20px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 24px;
 }
 
 .filter-link:hover {
-  text-decoration: underline;
+  color: #C3B1E1;
+  cursor: pointer;
 }
 
 .active-filter-link {
   margin: 0 1rem 0 1rem;
-  font-size: 20px;
-  text-decoration: underline;
+  color: #C3B1E1;
+  font-family: 'Courier Prime', monospace;
+  font-size: 24px;
+}
+
+.active-filter-link:hover {
+  cursor: pointer;
 }
 
 #bottom-card {
