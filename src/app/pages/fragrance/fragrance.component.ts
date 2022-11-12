@@ -35,8 +35,7 @@ export class FragranceComponent implements OnInit {
     private fragranceService: FragranceService,
     private favoritesService: FavoritesService,
     private cartService: CartService,
-    private authService: AuthService,
-    private toastrService: ToastrService) {
+    private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -96,14 +95,12 @@ export class FragranceComponent implements OnInit {
         this.favorites.push(this.fragranceId);
         this.favoritesService.updateFavoritesByUser(this.userId, this.favorites)
           .then(() => {
-            this.toastrService.success('Successfully added to my favorites!');
             this.isAdded = !this.isAdded;
           });
       } else {
         this.favorites = this.favorites.filter(f => f !== this.fragranceId);
         this.favoritesService.updateFavoritesByUser(this.userId, this.favorites)
           .then(() => {
-            this.toastrService.success('Successfully removed from my favorites!');
             this.isAdded = !this.isAdded;
           });
       }
@@ -122,7 +119,6 @@ export class FragranceComponent implements OnInit {
         this.cartItems.push(fragWithId);
         this.cartService.updateCartByUser(this.userId, this.cartItems)
           .then(() => {
-            this.toastrService.success('Successfully added to my shopping cart!');
             this.isAddedInCart = !this.isAddedInCart;
           });
       }

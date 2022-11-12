@@ -11,3 +11,16 @@
   max-width: 40rem;
   justify-content: center;
 }
+
+button {
+  background-color: pink;
+}
+
+h5 span {
+  text-decoration: underline;
+}
+
+h5 span:hover {
+  cursor: pointer;
+  color: #b80b2c;
+}

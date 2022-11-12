@@ -3,9 +3,9 @@
       <h3>Les perfumes</h3>
 
       <div class="form-fields-container">
-        <mat-form-field appearance="fill" type="email">
+        <mat-form-field appearance="fill">
           <mat-label>Email</mat-label>
-          <input matInput formControlName="email">
+          <input matInput formControlName="email"  type="email">
         </mat-form-field>
 
         <mat-form-field appearance="fill">
@@ -15,12 +15,11 @@
 
         <button
           mat-raised-button
-          color="primary"
           [disabled]="!email || !password"
         >
           Login
         </button>
-        <h5>Don't have an account yet? <span>Sign up!</span></h5>
+        <h5>Don't have an account yet? <span (click)="gotoRegister()">Sign up!</span></h5>
       </div>
     </form>
 </mat-card>

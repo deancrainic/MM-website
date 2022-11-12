@@ -27,6 +27,7 @@
       </div>
     </div>
   </div>
-  <p>Price: {{fragrance.fragrance.price * fragrance.quantity}} RON</p>
+  <p>Price: {{fragrance.fragrance.price}} RON</p>
+  <p *ngIf="fragrance.quantity > 1">Price for all: {{fragrance.fragrance.price * fragrance.quantity}} RON</p>
   <hr>
 </div>

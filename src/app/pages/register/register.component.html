@@ -30,12 +30,11 @@
 
       <button
         mat-raised-button
-        color="primary"
         [disabled]="!email || !firstName || !lastName || !password || !confirmedPassword"
       >
         Register
       </button>
-      <h5>Already have an account? <span>Sign in!</span></h5>
+      <h5>Already have an account? <span (click)="gotoLogin()">Sign in!</span></h5>
     </div>
   </form>
 </mat-card>

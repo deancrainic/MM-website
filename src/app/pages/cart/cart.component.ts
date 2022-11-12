@@ -7,6 +7,7 @@ import {Fragrance} from "../../shared/models/fragrance";
 import {Cart} from "../../shared/models/cart";
 import {FragranceQuantity} from "../../shared/models/fragrance-quantity";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-cart',
@@ -28,18 +29,15 @@ export class CartComponent implements OnInit {
   discount = new FormGroup({
     code: new FormControl()
   });
+  discountApplied = false;
 
   constructor(
     private authService: AuthService,
     private cartService: CartService,
-    private fragranceService: FragranceService
+    private fragranceService: FragranceService,
+    private toastrService: ToastrService
   ) {
-    let code = localStorage.getItem('code');
-    if (code !== 'null') {
-      this.discount.get('code')?.setValue(code);
-    } else {
-      this.discount.get('code')?.setValue('');
-    }
+
   }
 
   ngOnInit(): void {
@@ -49,6 +47,16 @@ export class CartComponent implements OnInit {
   getFragrancesList() {
     this.fragrances = [];
     this.isLoading = true;
+
+    let code = localStorage.getItem('code');
+    if (code !== 'null') {
+      this.discount.get('code')?.setValue(code);
+      this.discountApplied = true;
+    } else {
+      this.discount.get('code')?.setValue('');
+      this.discountApplied = false;
+    }
+
     this.authService.getUser.subscribe(user => {
       this.userId = user!.uid;
       this.cartService.getCartByUser(this.userId)
@@ -63,6 +71,9 @@ export class CartComponent implements OnInit {
             this.fragranceService.getFragranceById(fid.fragranceId).then(fragrance => {
               let frag = fragrance.data() as Fragrance;
               frag.id = fragrance.id;
+              if (this.discountApplied) {
+                frag.price = frag.price - frag.price * 10 / 100;
+              }
               let fragWithQuantity: FragranceQuantity = {
                 fragrance: frag,
                 quantity: fid.quantity
@@ -79,6 +90,23 @@ export class CartComponent implements OnInit {
 
   handleBuy() {
     this.cartService.setCartEmpty(this.userId).then(() => this.ngOnInit());
+  }
+
+  applyDiscount() {
+    if (this.codeField?.value !== 'promo10') {
+      this.toastrService.error("Discount code isn't valid");
+      this.discountApplied = false;
+    } else {
+      localStorage.setItem('code', this.codeField.value);
+      this.discountApplied = true;
+      this.ngOnInit();
+    }
+  }
+
+  removeDiscount() {
+    this.discountApplied = false;
+    localStorage.setItem('code', 'null');
+    this.ngOnInit();
   }
 
   get email(): string | undefined | null {

@@ -29,6 +29,10 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  gotoLogin() {
+    this.router.navigate(['login']);
+  }
+
   get email(): string | undefined | null {
     return this.registerForm.get('email')?.value;
   }

@@ -26,6 +26,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  gotoRegister() {
+    this.router.navigate(['register']);
+  }
+
   get email(): string | undefined | null {
     return this.loginForm.get('email')?.value;
   }
