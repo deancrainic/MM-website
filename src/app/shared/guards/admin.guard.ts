@@ -14,7 +14,7 @@ export class AdminGuard implements CanActivate {
 
   canActivate(): boolean {
     this.authService.getUser.subscribe(user => {
-      this.isAdmin = user?.email === 'ana@yahoo.com';
+      this.isAdmin = user?.email === 'admin@yahoo.com';
     });
 
     if (!this.isAdmin) {

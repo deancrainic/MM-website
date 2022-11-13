@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     {path: '../../../assets/discount-image.jpg'},
     {path: 'https://www.eisenberg.com/upload/images/eisenberg/4f/173_BANNER-CATEGORIE-FRAGRANCE-1170X500PX.jpeg'},
     {path: 'https://cdn.thegentlemansjournal.com/wp-content/uploads/2015/09/Header-Fragrances-1.jpg'},
-    {path: '../../../assets/discount-image.jpg'},
+    {path: '../../../assets/discount-image.jpg'}
   ];
 
   constructor(private fragranceService: FragranceService) { }

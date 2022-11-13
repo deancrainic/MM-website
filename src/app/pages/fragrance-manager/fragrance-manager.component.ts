@@ -49,7 +49,7 @@ export class FragranceManagerComponent implements OnInit {
       cid: this.addFragranceForm.get('category')?.value as string
     };
 
-    this.fragranceService.addFragrance(fragrance).then(() => this.ngOnInit());
+    this.fragranceService.addFragrance(fragrance).then(() => {this.addFragranceForm.reset();this.ngOnInit()});
   }
 
   getFragrances() {
