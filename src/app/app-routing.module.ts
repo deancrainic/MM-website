@@ -8,6 +8,8 @@ import {CartComponent} from "./pages/cart/cart.component";
 import {FragranceComponent} from "./pages/fragrance/fragrance.component";
 import {LoggedInGuard} from "./shared/guards/logged-in.guard";
 import {AboutUsComponent} from "./pages/about-us/about-us.component";
+import {FragranceManagerComponent} from "./pages/fragrance-manager/fragrance-manager.component";
+import {AdminGuard} from "./shared/guards/admin.guard";
 
 const routes: Routes = [{
   path: '',
@@ -32,6 +34,10 @@ const routes: Routes = [{
 }, {
   path: 'about-us',
   component: AboutUsComponent
+}, {
+  path: 'fragrance-manager',
+  component: FragranceManagerComponent,
+  canActivate: [AdminGuard]
 }];
 
 @NgModule({

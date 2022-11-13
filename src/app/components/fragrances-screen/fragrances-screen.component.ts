@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {Fragrance} from "../../shared/models/fragrance";
 import {FragranceService} from "../../shared/services/fragrance/fragrance.service";
 import {Router} from "@angular/router";
@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
   templateUrl: './fragrances-screen.component.html',
   styleUrls: ['./fragrances-screen.component.scss']
 })
-export class FragrancesScreenComponent implements OnInit {
+export class FragrancesScreenComponent implements OnInit, OnChanges {
 
   @Input()
   fragrances!: Fragrance[];
@@ -23,6 +23,10 @@ export class FragrancesScreenComponent implements OnInit {
   constructor(private fragranceService: FragranceService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getFragranceList();
+  }
+
+  ngOnChanges() {
     this.getFragranceList();
   }
 

@@ -1,0 +1,30 @@
+<div>
+  <div class="preview-content">
+    <img id="preview" [src]="fragrance.images[0]" alt="fragrance">
+    <div class="text">
+      <p>{{fragrance.name}}</p>
+      <div class="form" [formGroup]="priceForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Price</mat-label>
+          <input matInput formControlName="price" type="number">
+        </mat-form-field>
+        <button
+          mat-raised-button style="margin-left: 2rem;"
+          [disabled]="(!priceField!.dirty || !priceField!.valid)"
+          (click)="updatePrice(fragrance.id, priceField!.value)"
+        >
+          <mat-icon>check</mat-icon>
+        </button>
+        <button
+          mat-raised-button
+          style="margin-left: 2rem;"
+          (click)="removeFragrance(fragrance.id)"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <p>Price: {{fragrance.price}} RON</p>
+  <hr>
+</div>

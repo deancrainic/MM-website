@@ -6,7 +6,8 @@ import {Router} from "@angular/router";
   providedIn: 'root'
 })
 export class LoggedInGuard {
-    constructor(private authService: AuthService, private router: Router) {}
+
+  constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(): boolean {
     if (!this.authService.checkLoggedIn()) {

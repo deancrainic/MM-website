@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap%27');
+
 .form-fields-container {
   display: flex;
   flex-direction: column;
@@ -29,4 +31,12 @@ button {
 
 .discount-container button {
   margin-left: 2rem;
+}
+
+#discount {
+  width: 180px;
+}
+
+#message {
+  font-family: 'Courier Prime', monospace;
 }

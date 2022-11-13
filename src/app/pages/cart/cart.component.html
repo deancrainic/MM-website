@@ -1,4 +1,4 @@
-<mat-card *ngIf="!isLoading" class="cart-container">
+<mat-card *ngIf="!isLoading && fragrances.length > 0" class="cart-container">
   <div *ngIf="fragrances.length > 0" style="width: 49%; max-width: 49%">
     <form [formGroup]="confirmationForm">
       <div class="form-fields-container">
@@ -35,7 +35,7 @@
   <div style="width: 50%" *ngIf="fragrances.length > 0">
     <app-fragrance-cart-item *ngFor="let fragrance of fragrances" [fragrance]="fragrance" [userId]="userId" (refreshEvent)="getFragrancesList()"></app-fragrance-cart-item>
     <div [formGroup]="discount" class="discount-container">
-      <mat-form-field>
+      <mat-form-field id="discount" appearance="fill">
         <mat-label>Discount code</mat-label>
         <input matInput formControlName="code" type="text">
       </mat-form-field>
@@ -54,6 +54,9 @@
     <p *ngIf="discountApplied">Discount applied</p>
     <h4>Total: {{totalCost}} RON</h4>
   </div>
-
-  <h4 *ngIf="fragrances.length === 0">Shopping cart is empty.</h4>
 </mat-card>
+
+<div *ngIf="fragrances.length === 0" style="display: flex; flex-direction: column; align-items: center">
+  <img src="../../../assets/favoritesheart.png" alt="">
+  <h4 id="message">Shopping cart is empty.</h4>
+</div>

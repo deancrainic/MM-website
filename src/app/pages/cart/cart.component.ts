@@ -89,7 +89,11 @@ export class CartComponent implements OnInit {
   }
 
   handleBuy() {
-    this.cartService.setCartEmpty(this.userId).then(() => this.ngOnInit());
+    this.cartService.setCartEmpty(this.userId).then(() => {
+      this.ngOnInit();
+      localStorage.setItem('code', 'null');
+      this.discountApplied = false;
+    });
   }
 
   applyDiscount() {

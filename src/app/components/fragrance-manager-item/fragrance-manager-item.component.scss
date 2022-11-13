@@ -1,8 +1,3 @@
-#preview {
-  max-width: 8rem;
-  height: 8rem;
-}
-
 .preview-content {
   display: flex;
   align-items: center;
@@ -17,7 +12,7 @@ button {
   background-color: pink;
 }
 
-.form {
-  display: flex;
-  align-items: flex-start;
+#preview {
+  width: 4rem;
+  height: 8rem;
 }

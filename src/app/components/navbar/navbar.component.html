@@ -6,6 +6,7 @@
   <div>
     <span *ngIf="!isLoggedIn" routerLink="/login" [routerLinkActive]="['link-active']">Login</span>
     <span *ngIf="!isLoggedIn" routerLink="/register" [routerLinkActive]="['link-active']">Register</span>
+    <span *ngIf="isAdmin" routerLink="/fragrance-manager" [routerLinkActive]="['link-active']">Admin</span>
     <span *ngIf="isLoggedIn" routerLink="/favorites" [routerLinkActive]="['link-active']">My favorites</span>
     <span *ngIf="isLoggedIn" routerLink="/cart" [routerLinkActive]="['link-active']">Shopping cart</span>
     <span *ngIf="isLoggedIn" routerLink="/" (click)="onLogOut()">Log out</span>

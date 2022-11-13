@@ -1,0 +1,43 @@
+<div style="width: 100%; display: flex; justify-content: space-between">
+  <form class="form-container" [formGroup]="addFragranceForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput formControlName="name">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <input type="text" matInput formControlName="category">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Notes</mat-label>
+      <textarea matInput formControlName="notes"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price" type="number">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Images</mat-label>
+      <textarea matInput formControlName="images"></textarea>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      [disabled]="!addFragranceForm.get('name')!.valid
+        || !addFragranceForm.get('description')!.valid
+        || !addFragranceForm.get('notes')!.valid
+        || !addFragranceForm.get('images')!.valid
+        || !addFragranceForm.get('price')!.valid
+        || !addFragranceForm.get('category')!.valid"
+      (click)="addFragrance()"
+    >
+      Add new fragrance
+    </button>
+  </form>
+  <div *ngIf="!isLoading" class="fragrance-container">
+    <app-fragrance-manager-item *ngFor="let fragrance of fragrances" [fragrance]="fragrance" (refreshEvent)="getFragrances()"></app-fragrance-manager-item>
+  </div>
+</div>

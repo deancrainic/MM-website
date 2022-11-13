@@ -27,6 +27,8 @@ import { FragrancesScreenComponent } from './components/fragrances-screen/fragra
 import { FragranceCartItemComponent } from './components/fragrance-cart-item/fragrance-cart-item.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import {IvyCarouselModule} from "angular14-responsive-carousel";
+import { FragranceManagerComponent } from './pages/fragrance-manager/fragrance-manager.component';
+import { FragranceManagerItemComponent } from './components/fragrance-manager-item/fragrance-manager-item.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import {IvyCarouselModule} from "angular14-responsive-carousel";
     FragranceComponent,
     FragrancesScreenComponent,
     FragranceCartItemComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    FragranceManagerComponent,
+    FragranceManagerItemComponent
   ],
   imports: [
     BrowserModule,
